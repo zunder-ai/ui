@@ -1,0 +1,35 @@
+{
+  "name": "@zunderai/ui",
+  "type": "module",
+  "version": "0.1.3",
+  "description": "Zunder is a Nuxt UI compatible Library for building AI Apps, powered by Vue & Tailwind CSS",
+  "license": "MIT",
+  "main": "./nuxt.config.ts",
+  "scripts": {
+    "play": "nuxi dev .playground",
+    "dev:prepare": "nuxt prepare .playground",
+    "build": "nuxt build .playground",
+    "generate": "nuxt generate .playground",
+    "preview": "nuxt preview .playground",
+    "lint": "eslint .",
+    "typecheck": "nuxi typecheck",
+    "release": "release-it",
+    "dev": "nuxt build --watch"
+  },
+  "dependencies": {
+    "@nuxt/ui": "^2.18.4",
+    "@nuxt/kit": "^3.12.4"
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "^0.4.0",
+    "eslint": "^8.57.0",
+    "nuxt": "^3.12.4",
+    "typescript": "^5.5.3",
+    "vue": "latest",
+    "release-it": "^17.6.0",
+    "vue-tsc": "^2.0.29"
+  },
+  "resolutions": {
+    "@zunderai/ui": "workspace:*"
+  }
+}

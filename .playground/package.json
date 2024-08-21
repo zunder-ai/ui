@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "@zunderai/ui-playground",
+  "type": "module",
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "generate": "nuxi generate"
+  },
+  "dependencies": {
+    "@zunderai/ui": "latest",
+    "nuxt": "^3.12.4"
+  }
+}
