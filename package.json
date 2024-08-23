@@ -25,6 +25,7 @@
     "generate": "nuxt generate .playground",
     "preview": "nuxt preview .playground",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "typecheck": "nuxi typecheck",
     "release": "pnpm build && pnpm release-it",
     "dev": "nuxt build --watch",

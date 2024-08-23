@@ -8,5 +8,5 @@ export default defineNuxtModule({
         compatibility: {
             nuxt: '^3.10.0'
         }
-    },
+    }
 })
