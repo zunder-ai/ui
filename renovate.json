@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "github>nuxt/renovate-config-nuxt"
+  ],
+  "ignoreDeps": [
+    "@nuxt/eslint-config",
+    "nuxt-component-meta",
+    "valibot30",
+    "valibot31"
+  ]
+}
