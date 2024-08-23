@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ChatMessage } from '../src/runtime/types/index'
+import type { ChatMessage } from '../../types/chat'
 const loading = ref(false);
 const chatMessages = ref<ChatMessage[]>([]);
 
