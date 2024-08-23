@@ -2,7 +2,7 @@
   <div
     :class="[
       'p-3 rounded-lg',
-      message.isUser ? 'col-start-6' : 'col-start-1'
+      message.isUser ? 'col-start-6' : 'col-start-1 col-end-3'
     ]"
   >
     <div

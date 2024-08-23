@@ -5,6 +5,19 @@
   "description": "Zunder is a Nuxt UI compatible Library for building AI Apps, powered by Vue & Tailwind CSS",
   "license": "MIT",
   "main": "./nuxt.config.ts",
+  "files": [
+    "app",
+    "assets",
+    "components",
+    "composables",
+    "lib",
+    "modules",
+    "plugins",
+    "types",
+    "app.config.ts",
+    "nuxt.config.ts",
+    "tailwind.config.ts"
+  ],
   "scripts": {
     "play": "nuxi dev .playground",
     "dev:prepare": "nuxt prepare .playground",
@@ -14,7 +27,8 @@
     "lint": "eslint .",
     "typecheck": "nuxi typecheck",
     "release": "release-it",
-    "dev": "nuxt build --watch"
+    "dev": "nuxt build --watch",
+    "watch": "tsc --watch"
   },
   "dependencies": {
     "@nuxt/ui": "^2.18.4",

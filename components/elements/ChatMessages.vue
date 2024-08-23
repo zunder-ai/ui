@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-12 gap-y-2">
+  <div class="grid grid-cols-6 gap-y-2">
     <ZChatMessage v-for="(message, index) in messages" :key="index" :message="message" />
   </div>
 </template>
