@@ -78,6 +78,7 @@ const props = defineProps({
   }
 })
 
+
 const { ui, attrs } = useUI(
   'chat.page',
   toRef(props, 'ui'),
@@ -85,4 +86,7 @@ const { ui, attrs } = useUI(
   toRef(props, 'class'),
   true
 )
+
+console.log('UI', ui.value)
+
 </script>
