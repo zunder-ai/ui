@@ -1,7 +1,7 @@
 {
   "name": "@zunderai/ui",
   "type": "module",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Zunder is a Nuxt UI compatible Library for building AI Apps, powered by Vue & Tailwind CSS",
   "license": "MIT",
   "main": "./nuxt.config.ts",
