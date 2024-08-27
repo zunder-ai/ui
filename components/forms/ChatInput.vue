@@ -1,12 +1,12 @@
 <template>
-  <UForm ref="chatInputFormRef" :state="state" @submit="handleSubmit">
-    <div class="flex items-center space-x-4 bg-gray-100 dark:bg-gray-800 p-4 rounded-3xl">
+  <UForm ref="chatInputFormRef" v-bind="attrs" :state="state" @submit="handleSubmit">
+    <div :class="ui.wrapper">
       <UTextarea
         v-model="state.chatInputText"
         size="xl"
         :rows="1"
         :placeholder="placeholder"
-        class="flex-grow resize-none"
+        :class="ui.textarea"
         @keydown.enter.prevent="handleEnterKey"
       />
       <UButton
@@ -16,15 +16,26 @@
         type="submit"
         size="xl"
         icon="i-codicon:arrow-up"
+        :class="ui.button"
       />
     </div>
   </UForm>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { ref, reactive, type PropType } from 'vue'
 
-defineProps({
+const config = computed(() => ({
+  wrapper: 'flex items-center space-x-4 bg-gray-100 dark:bg-gray-800 p-4 rounded-3xl',
+  textarea: 'flex-grow resize-none',
+  button: ''
+}))
+
+defineOptions({
+  inheritAttrs: false
+})
+
+const props = defineProps({
   placeholder: {
     type: String,
     default: 'Type your message here...'
@@ -32,8 +43,24 @@ defineProps({
   loading: {
     type: Boolean,
     default: false
+  },
+  class: {
+    type: [String, Object, Array] as PropType<any>,
+    default: undefined
+  },
+  ui: {
+    type: Object as PropType<Partial<typeof config.value>>,
+    default: () => ({})
   }
 })
+
+const { ui, attrs } = useUI(
+  'chat.input',
+  toRef(props, 'ui'),
+  config,
+  toRef(props, 'class'),
+  true
+)
 
 const emit = defineEmits(['submit'])
 
