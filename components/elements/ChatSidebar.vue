@@ -90,7 +90,7 @@ const config = computed(() => ({
     right: 'right-0 bg-gradient-to-l'
   },
   background: {
-    base: 'w-[18rem] bg-white border-primary-300 absolute will-change-transform overflow-hidden backdrop-blur border-t-0.5 border-b-0.5 bottom-1 top-1 shadow-[-80px_200px_120px_0_rgba(0,0,0,0.1),_-8px_20px_48px_0_rgba(0,0,0,0.15)]',
+    base: 'w-[18rem] bg-white dark:bg-gray-800/50 border-primary-300 absolute will-change-transform overflow-hidden backdrop-blur border-t-0.5 border-b-0.5 bottom-1 top-1 shadow-[-80px_200px_120px_0_rgba(0,0,0,0.1),_-8px_20px_48px_0_rgba(0,0,0,0.15)]',
     left: 'left-0 rounded-r-xl border-r-0.5',
     right: 'right-0 rounded-l-xl border-l-0.5'
   },
