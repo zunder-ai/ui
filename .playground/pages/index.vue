@@ -1,4 +1,35 @@
 <template>
+    <ZChatSidebar>
+        <template #content>
+            <div class="flex items-center">
+                <div class="flex flex-1 items-center leading-none">
+                    <h1 class="text-xl text-primary">
+                        <span class="font-bold">ZUNDER</span> <span
+                        class="font-light italic"
+                        >AI CHAT</span>
+                    </h1>
+                </div>
+                <div>
+                    <UButton variant="ghost" color="black" icon="i-heroicons-arrow-right-start-on-rectangle" />
+                </div>
+            </div>
+            <div class="w-full">
+                <UButton variant="soft" label="Start a new chat" block icon="i-heroicons-plus" trailing />
+            </div>
+            <div class="flex flex-1" />
+            <div class="flex items-center">
+                <div class="flex flex-1 items-center leading-none">
+                    <UAvatar
+                        src="/avatar.png"
+                        alt="Avatar"
+                    />
+                </div>
+                <div>
+                    <UButton variant="ghost" color="black" icon="i-heroicons-cog-6-tooth" />
+                </div>
+            </div>
+        </template>
+    </ZChatSidebar>
     <ZChatPage>
         <template #messages>
             <ZChatMessages :messages="chatMessages" />
