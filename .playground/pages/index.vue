@@ -1,5 +1,5 @@
 <template>
-    <ZChatSidebar>
+    <ZChatSidebar v-model:open="isOpen" side="right">
         <template #content>
             <div class="flex items-center">
                 <div class="flex flex-1 items-center leading-none">
@@ -9,8 +9,8 @@
                         >AI CHAT</span>
                     </h1>
                 </div>
-                <div>
-                    <UButton variant="ghost" color="black" icon="i-heroicons-arrow-right-start-on-rectangle" />
+                <div class="md:hidden">
+                    <UButton variant="ghost" color="black" icon="i-heroicons-x-mark" @click="isOpen = false" />
                 </div>
             </div>
             <div class="w-full">
@@ -18,19 +18,24 @@
             </div>
             <div class="flex flex-1" />
             <div class="flex items-center">
-                <div class="flex flex-1 items-center leading-none">
+                <div>
+                    <UButton variant="ghost" color="black" icon="i-heroicons-cog-6-tooth" />
+                </div>
+                <div class="flex flex-1 items-center justify-end leading-none">
                     <UAvatar
                         src="/avatar.png"
                         alt="Avatar"
                     />
                 </div>
-                <div>
-                    <UButton variant="ghost" color="black" icon="i-heroicons-cog-6-tooth" />
-                </div>
             </div>
         </template>
     </ZChatSidebar>
     <ZChatPage>
+        <template #header-right>
+            <div class="md:hidden">
+                <UButton variant="ghost" color="black" icon="i-heroicons-bars-3" @click="toggle" />
+            </div>
+        </template>
         <template #messages>
             <ZChatMessages :messages="chatMessages" />
         </template>
@@ -42,6 +47,9 @@
 
 <script setup lang="ts">
 import type { ChatMessage } from '../../types/chat'
+
+const { isOpen, toggle } = useChatSidebar();
+
 const loading = ref(false);
 const chatMessages = ref<ChatMessage[]>([]);
 

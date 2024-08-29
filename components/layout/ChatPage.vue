@@ -12,6 +12,7 @@
           <div :class="ui.header.buttons">
             <UButton color="gray" variant="ghost" icon="i-heroicons-cog-6-tooth" />
             <ZColorModeButton />
+            <slot name="header-right" />
           </div>
         </div>
       </UContainer>
