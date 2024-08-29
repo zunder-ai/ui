@@ -80,7 +80,7 @@ const config = computed(() => ({
     right: 'right-0'
   },
   container: {
-    base: 'fixed bottom-0 top-0 z-20 px-3 pb-4 pt-2.5 w-[18rem]',
+    base: 'fixed bottom-0 top-0 z-20 px-3 pb-4 pt-2.5 w-[18rem] will-change-transform',
     left: 'left-0',
     right: 'right-0'
   },
@@ -90,7 +90,7 @@ const config = computed(() => ({
     right: 'right-0 bg-gradient-to-l'
   },
   background: {
-    base: 'w-[18rem] bg-white border-primary-300 absolute overflow-hidden backdrop-blur border-t-0.5 border-b-0.5 bottom-1 top-1 shadow-[-80px_200px_120px_0_rgba(0,0,0,0.1),_-8px_20px_48px_0_rgba(0,0,0,0.15)]',
+    base: 'w-[18rem] bg-white border-primary-300 absolute will-change-transform overflow-hidden backdrop-blur border-t-0.5 border-b-0.5 bottom-1 top-1 shadow-[-80px_200px_120px_0_rgba(0,0,0,0.1),_-8px_20px_48px_0_rgba(0,0,0,0.15)]',
     left: 'left-0 rounded-r-xl border-r-0.5',
     right: 'right-0 rounded-l-xl border-l-0.5'
   },
@@ -112,7 +112,7 @@ const props = defineProps({
   },
   animationDuration: {
     type: Number,
-    default: 250
+    default: 150
   },
   animationEasing: {
     type: String as PropType<'linear' | 'ease-in' | 'ease-out' | 'ease-in-out'>,
@@ -178,18 +178,24 @@ const handleMouseMoveShadow = (e?: MouseEvent) => {
   if (!sidebar.value) return
   const x = e?.clientX || 0
   const rect = sidebar.value.getBoundingClientRect()
-  const minX = rect.width
-  const maxX = 680
-  if (minX > maxX) return
-  const range = maxX - minX
 
   let percentage
   if (props.side === 'left') {
-    percentage = 100 - ((x - minX) / range) * 100
+    const startPoint = 680
+    const endPoint = rect.width
+    if (endPoint > startPoint) return
+    const range = endPoint - startPoint
+    percentage = ((x - startPoint) / range) * 100
+    percentage = Math.max(0, Math.min(100, percentage))
   } else {
-    percentage = ((x - rect.left) / range) * 100
+    const screenWidth = window.innerWidth
+    const startPoint = screenWidth - 680
+    const endPoint = rect.left
+    if (endPoint < startPoint) return
+    const range = startPoint - endPoint
+    percentage = ((x - endPoint) / range) * 100
+    percentage = 100 - Math.max(0, Math.min(100, percentage))
   }
-  percentage = Math.max(0, Math.min(100, percentage))
 
   sidebarShadowOpacity.value = Number((percentage / 100).toFixed(5))
 }
