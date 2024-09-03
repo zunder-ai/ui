@@ -1,20 +1,9 @@
 <template>
   <div v-bind="attrs" :class="ui.wrapper">
     <!-- Header -->
-    <header :class="ui.header.base">
+    <header v-if="$slots.header" :class="ui.header">
       <UContainer>
-        <div :class="ui.header.container">
-          <h1 :class="ui.header.title">
-            <span class="font-bold">ZUNDER</span> <span
-              class="font-light italic"
-            >AI CHAT</span>
-          </h1>
-          <div :class="ui.header.buttons">
-            <UButton color="gray" variant="ghost" icon="i-heroicons-cog-6-tooth" />
-            <ZColorModeButton />
-            <slot name="header-right" />
-          </div>
-        </div>
+        <slot name="header" />
       </UContainer>
     </header>
 
@@ -31,11 +20,9 @@
     </main>
 
     <!-- Footer -->
-    <footer :class="ui.footer.base">
+    <footer v-if="$slots.footer" :class="ui.footer">
       <UContainer>
-        <div :class="ui.footer.container">
-          <slot name="footer" />
-        </div>
+        <slot name="footer" />
       </UContainer>
     </footer>
   </div>
@@ -45,23 +32,15 @@
 import type { PropType } from 'vue'
 
 const config = computed(() => ({
-  wrapper: 'flex flex-col h-screen bg-gray-50 dark:bg-gray-900',
-  header: {
-    base: 'bg-white dark:bg-gray-800 shadow',
-    container: 'flex justify-between items-center py-4',
-    title: 'text-2xl text-gray-900 dark:text-white font-bold',
-    buttons: 'flex items-center space-x-4'
-  },
+  wrapper: 'flex flex-col flex-grow w-full h-screen bg-gray-50 dark:bg-gray-900',
+  header: 'bg-white dark:bg-gray-800 shadow',
   main: {
     base: 'flex-grow overflow-hidden',
     container: 'h-full flex flex-col',
     messages: 'flex-grow overflow-y-auto py-4',
     input: 'py-4'
   },
-  footer: {
-    base: 'bg-white dark:bg-gray-800 shadow',
-    container: 'py-2 text-center text-sm text-gray-500 dark:text-gray-400'
-  }
+  footer: 'bg-white dark:bg-gray-800 shadow'
 }))
 
 defineOptions({
