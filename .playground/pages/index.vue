@@ -50,6 +50,7 @@
             color="black"
             :icon="trayIsOpen ? 'i-heroicons-arrow-left-end-on-rectangle' : 'i-heroicons-arrow-right-start-on-rectangle'"
             @click="trayToggle"
+            class="md:hidden"
             />
         </div>
         <div>
