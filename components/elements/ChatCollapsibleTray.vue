@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 const config = computed(() => ({
-  wrapper: 'bg-white dark:bg-gray-800/50 h-screen border-r border-gray-200 dark:border-gray-700 p-4 w-72 max-w-72 flex flex-col gap-y-4 fixed top-0 left-0 md:relative z-20'
+  wrapper: 'bg-white dark:bg-gray-800 h-screen border-r border-gray-200 dark:border-gray-700 p-4 w-72 max-w-72 flex flex-col gap-y-4 fixed top-0 left-0 md:relative z-20 shadow'
 }))
 
 defineOptions({
