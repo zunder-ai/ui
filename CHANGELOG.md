@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.1.8](https://github.com/zunder-ai/ui/compare/v0.1.7...v0.1.8) (2024-09-12)
+
 ## [0.1.7](https://github.com/zunder-ai/ui/compare/v0.1.6...v0.1.7) (2024-09-11)
 
 
