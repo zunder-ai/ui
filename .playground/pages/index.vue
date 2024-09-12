@@ -1,4 +1,5 @@
 <template>
+  <div>
   <ZChatSidebar v-model:open="isOpen" side="right">
     <template #content>
       <div class="flex items-center">
@@ -87,7 +88,8 @@
                     variant="ghost"
                     icon="i-heroicons-cog-6-tooth"
                 />
-                <ZColorModeButton />
+                <ZColorModeButton light-icon="i-solar:sun-line-duotone"
+                dark-icon="i-solar:moon-stars-line-duotone" />
                 <div class="md:hidden">
                     <UButton
                     variant="ghost"
@@ -111,6 +113,7 @@
         </template>
     </ZChatPage>
     </div>
+  </div>
 </template>
 
 <script setup lang="ts">
