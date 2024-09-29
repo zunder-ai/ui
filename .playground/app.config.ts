@@ -30,17 +30,12 @@ export default defineAppConfig({
     },
     chat: {
       page: {
-        wrapper: 'flex flex-col h-screen bg-gray-50 dark:bg-gray-900',
-        header: {
-          base: 'bg-white/50 dark:bg-gray-800/50 backdrop-blur-md border-b border-gray-200 dark:border-gray-700',
-          title: 'text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-700 dark:from-primary-400 dark:to-primary-600'
-        },
+        wrapper: 'flex flex-col flex-grow h-screen bg-gray-50 dark:bg-gray-900',
+        header: 'bg-white/50 dark:bg-gray-800/50 backdrop-blur-md border-b border-gray-200 dark:border-gray-700',
         main: {
           base: 'flex-grow overflow-hidden scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent'
         },
-        footer: {
-          base: 'bg-white/50 dark:bg-gray-800/50 backdrop-blur-md border-t border-gray-200 dark:border-gray-700'
-        }
+        footer: 'bg-white/50 dark:bg-gray-800/50 backdrop-blur-md border-t border-gray-200 dark:border-gray-700'
       },
       message: {
         wrapper: {
@@ -58,7 +53,7 @@ export default defineAppConfig({
         wrapper: 'bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700',
         input: 'focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 transition-shadow duration-300 ease-in-out',
         button: 'hover:bg-primary-600 dark:hover:bg-primary-400 transition-colors duration-300 ease-in-out'
-      }
+      },
     },
   },
 })
